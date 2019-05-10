@@ -75,17 +75,17 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     private function registerCommands()
     {
         //scheduled:summary
-        $this->app->bindShared('command.scheduled.summary', function (Application $app) {
+        $this->app->singleton('command.scheduled.summary', function (Application $app) {
             return $app->make('Indatus\Dispatcher\Commands\ScheduleSummary');
         });
 
         //scheduled:make
-        $this->app->bindShared('command.scheduled.make', function (Application $app) {
+        $this->app->singleton('command.scheduled.make', function (Application $app) {
             return $app->make('Indatus\Dispatcher\Commands\Make');
         });
 
         //scheduled:run
-        $this->app->bindShared('command.scheduled.run', function (Application $app) {
+        $this->app->singleton('command.scheduled.run', function (Application $app) {
             return $app->make('Indatus\Dispatcher\Commands\Run');
         });
 
